@@ -1,7 +1,7 @@
 require "render_static/middleware"
 
 describe RenderStatic::Middleware do
-  let(:app) { stub }
+  let(:app) { double }
   let(:middleware) { RenderStatic::Middleware.new(app) }
   let(:request) {
     {

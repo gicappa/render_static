@@ -11,8 +11,8 @@ describe RenderStatic::Renderer do
     it "requests the content" do
       env = { "HTTP_HOST" => "localhost:3000", "REQUEST_PATH" => "/abc", "rack.url_scheme" => "https" }
 
-      navigate = stub
-      browser = stub(navigate: navigate, page_source: "loaded page")
+      navigate = double
+      browser = double(navigate: navigate, page_source: "loaded page")
       Selenium::WebDriver.should_receive(:for).with(:firefox) { browser }
 
       navigate.should_receive(:to).with("https://localhost:3000/abc")
